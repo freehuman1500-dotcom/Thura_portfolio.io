@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Thura – IT Student</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fdfbf7;--fg:#242220;--grey:#726d64;--light:#f4efe6;--dark:#1f6f78;--dark-fg:#fff;--line:#e5ddd0;--side:#12312f;--acc:#1f6f78;--acc2:#d97b3f;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14181a;--fg:#eee8de;--grey:#a3a49b;--light:#1c2224;--dark:#3aa1ab;--line:#2b3234;--side:#0e211f;--acc:#3aa1ab;--acc2:#e39657}}
+:root[data-theme="dark"]{--bg:#14181a;--fg:#eee8de;--grey:#a3a49b;--light:#1c2224;--dark:#3aa1ab;--line:#2b3234;--side:#0e211f;--acc:#3aa1ab;--acc2:#e39657}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;font:400 15px/1.6 "Montserrat",system-ui,sans-serif;background:var(--bg);color:var(--fg)}
+h1,h2,h3{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+svg.i{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.125em}
+.art{background:linear-gradient(175deg,var(--side),#0b1e1c);display:flex;align-items:center;justify-content:center}
+#side{position:fixed;left:0;top:0;width:40%;height:100%}
+main{margin-left:40%;padding:16px 32px}
+.side-card{display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center;padding:0 30px}
+.ph{width:190px;height:190px;border-radius:50%;overflow:hidden;background:rgba(255,255,255,.04);border:2px dashed rgba(255,255,255,.35);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 8px rgba(255,255,255,.05),0 18px 40px -14px rgba(0,0,0,.6)}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.ph-empty{display:flex;flex-direction:column;align-items:center;gap:10px;color:var(--acc2);text-align:center;padding:12px}
+.ph-empty svg{width:32px;height:32px;stroke:var(--acc2);fill:none;stroke-width:1.6}
+.ph-empty span{font-size:12px;line-height:1.5;color:rgba(255,255,255,.55)}
+.side-card h2{font-size:27px;color:#fff;font-weight:800}
+.side-card .role{color:var(--acc2);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+.side-card .tagline{color:rgba(255,255,255,.6);font-size:13.5px;max-width:26ch;line-height:1.6}
+.side-card .soc{display:flex;gap:10px;margin-top:6px}
+.side-card .soc a{color:rgba(255,255,255,.7);text-decoration:none;font-size:12px;border:1px solid rgba(255,255,255,.25);padding:7px 14px;border-radius:20px}
+.side-card .soc a:hover{color:#fff;border-color:var(--acc2);background:rgba(255,255,255,.06)}
+.mobile-art .ph{width:150px;height:150px;background:var(--light);border-color:var(--acc)}
+.mobile-art .ph-empty svg{stroke:var(--acc)}
+.mobile-art .ph-empty span{color:var(--grey)}
+@media (min-width:993px){.only-mobile{display:none}}
+.menu-btn{position:fixed;top:env(safe-area-inset-top,0px);right:0;z-index:3;background:var(--bg);color:var(--grey);border:0;font-size:32px;padding:6px 16px;cursor:pointer}
+.menu-btn:hover{color:var(--fg)}
+#nav{display:none;position:fixed;top:0;right:0;height:100%;width:60%;z-index:4;background:var(--side);padding-top:150px;text-align:center;font-size:30px}
+#nav.open{display:block;animation:slide .25s ease-out}
+@keyframes slide{from{transform:translateX(30%);opacity:0}}
+#nav a{display:block;padding:8px 16px;color:#9a9a9a;text-decoration:none}
+#nav a:hover{color:#fff}
+#nav .close{position:absolute;top:8px;right:8px;background:none;border:0;color:#fff;font-size:40px;padding:0 12px;cursor:pointer}
+header.hero{text-align:center;padding:128px 16px}
+.hero h1{font-size:clamp(48px,8vw,84px);font-weight:800;line-height:1.05}
+.hero p{color:var(--acc);font-size:18px;font-weight:500}
+.mobile-art{display:none;width:auto;padding:24px 0 4px;margin:0 auto;border-radius:0;overflow:visible;background:none}
+.btn{display:inline-block;background:var(--light);color:var(--fg);border:0;padding:14px 24px;font:500 15px "Montserrat",sans-serif;cursor:pointer;text-decoration:none}
+.btn:hover{background:var(--acc);color:#fff}
+.sec{max-width:980px;margin:0 auto;padding:32px 0}
+.sec>h2{color:var(--grey);font-size:30px;font-weight:700}
+hr{border:0;border-top:1px solid var(--line);margin:12px 0 24px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.card{background:var(--light);padding:22px;border-left:4px solid var(--acc2)}
+.card h3{font-size:19px;margin-bottom:6px;color:var(--acc)}
+.card p{margin:0 0 10px;color:var(--grey);font-size:14px}
+.card small{display:block;color:var(--grey);font-size:12.5px}
+.about{color:var(--grey)}
+.about h3{font-size:22px;padding:16px 0 4px;color:var(--fg)}
+.bar{background:var(--light);margin-bottom:14px;border-radius:3px;overflow:hidden}
+.bar div{background:linear-gradient(90deg,var(--acc),var(--acc2));color:#fff;text-align:center;padding:4px 0;font-size:13px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);text-align:center;background:linear-gradient(120deg,var(--acc),var(--acc2));color:#fff;padding:20px 0;margin:28px 0;border-radius:10px}
+.stats b{display:block;font-size:26px;font-weight:500}
+.quote{display:flex;gap:16px;align-items:flex-start;margin-bottom:20px}
+.av{flex:none;width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;display:grid;place-items:center;font-weight:700}
+.quote p{margin:0}.quote .n{font-size:17px;color:var(--fg)}
+.help{list-style:none;margin:0;padding:0;text-align:center;box-shadow:0 2px 6px rgba(0,0,0,.2);background:var(--bg)}
+.help li{padding:14px 12px;border-bottom:1px solid var(--line)}
+.help li:first-child{background:linear-gradient(120deg,var(--acc),var(--acc2));color:#fff;font-size:22px;padding:28px 12px}
+.help li:last-child{background:var(--light);border:0}
+.contact p{display:flex;align-items:center;gap:14px;margin:8px 0}
+.contact .i{font-size:26px}
+.contact svg.i{color:var(--acc);stroke:var(--acc)}
+form input,form textarea{width:100%;padding:16px;margin-bottom:14px;border:1px solid var(--line);background:var(--bg);color:var(--fg);font:inherit;border-radius:0}
+footer{background:var(--light);text-align:center;padding:56px 16px;margin:32px -32px 0;color:var(--grey)}
+footer a{margin:0 12px;font-weight:500;color:var(--acc)}
+.note{font-size:13px}
+@media (max-width:992px){#side{display:none}main{margin-left:0;padding:16px}.mobile-art{display:block}footer{margin:32px -16px 0}#nav{width:100%}}
+@media (max-width:600px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr;row-gap:16px}.mobile-art{width:100%}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}#nav.open{animation:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
+  <symbol id="x" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></symbol>
+  <symbol id="dl" viewBox="0 0 24 24"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 20h16"/></symbol>
+  <symbol id="send" viewBox="0 0 24 24"><path d="M21 3L10 14M21 3l-7 18-4-7-7-4z"/></symbol>
+  <symbol id="pin" viewBox="0 0 24 24"><path d="M12 22s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+  <symbol id="mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol>
+  <symbol id="phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></symbol>
+  <symbol id="cam" viewBox="0 0 24 24"><path d="M4 8h3l2-2h6l2 2h3v11H4z"/><circle cx="12" cy="13.5" r="3.5"/></symbol>
+</svg>
+
+<!-- ============================================================
+     HOW TO ADD YOUR OWN PHOTO
+     Two spots use the same placeholder: the desktop profile card
+     below (id="side") and the mobile version further down (class
+     "mobile-art"). In EACH one, replace the <div class="ph-empty">
+     ...</div> with:
+       <img src="your-photo.jpg" alt="Thura">
+     Keep the parent <div class="ph"> as-is.
+     ============================================================ -->
+<div id="side" class="art" aria-hidden="true">
+  <div class="side-card">
+    <div class="ph">
+      <div class="ph-empty">
+        <svg class="i" style="width:32px;height:32px"><use href="#cam"/></svg>
+        <span>Add your<br>photo here</span>
+      </div>
+    </div>
+    <div>
+      <h2>Thura</h2>
+      <div class="role">IT Student</div>
+    </div>
+    <p class="tagline">Networking, Linux &amp; security — building things, then writing down how they work.</p>
+    <div class="soc">
+      <a href="#">GitHub</a><a href="#">LinkedIn</a><a href="mailto:alex@example.com">Email</a>
+    </div>
+  </div>
+</div>
+
+<nav id="nav" aria-label="Main menu">
+  <button class="close" onclick="closeNav()" aria-label="Close menu"><svg class="i"><use href="#x"/></svg></button>
+  <a href="#home" onclick="closeNav()">Home</a>
+  <a href="#portfolio" onclick="closeNav()">Projects</a>
+  <a href="#about" onclick="closeNav()">About</a>
+  <a href="#contact" onclick="closeNav()">Contact</a>
+</nav>
+
+<main>
+  <button class="menu-btn" onclick="openNav()" aria-label="Open menu" aria-controls="nav"><svg class="i"><use href="#menu"/></svg></button>
+
+  <header class="hero" id="home">
+    <div class="mobile-art art only-mobile" aria-hidden="true">
+      <div class="ph">
+        <div class="ph-empty">
+          <svg class="i" style="width:26px;height:26px"><use href="#cam"/></svg>
+          <span>Add your<br>photo here</span>
+        </div>
+      </div>
+    </div>
+    <h1 class="only-mobile">Thura</h1>
+    <p>IT Student · Networking · Linux · Security</p>
+    <a class="btn" style="margin-top:24px" href="#"><svg class="i"><use href="#dl"/></svg> Download Resume</a>
+  </header>
+
+  <section class="sec" id="portfolio">
+    <h2>My Projects</h2><hr>
+    <div class="grid">
+      <div class="card"><h3>Segmented home lab</h3><p>Split a flat home network into VLANs for trusted devices, guests and IoT, with firewall rules and network-wide ad blocking.</p><small>Networking · Linux · Security</small></div>
+      <div class="card"><h3>SSH log watcher</h3><p>A Python script that counts failed logins per IP in auth logs and emails a summary when a threshold is crossed.</p><small>Python · Security</small></div>
+      <div class="card"><h3>Helpdesk ticket tracker</h3><p>A web app for logging, assigning and closing support tickets, with a SQL database behind it. Built for a class project.</p><small>JavaScript · SQL · Web</small></div>
+      <div class="card"><h3>Automated backups</h3><p>Nightly rsync backups from two laptops to a NAS, with retention rules and a quick status report.</p><small>Bash · Linux</small></div>
+      <div class="card"><h3>Active Directory lab</h3><p>Built a small Windows domain in virtual machines with users, groups, group policy and shared folders.</p><small>Windows Server · VirtualBox</small></div>
+      <div class="card"><h3>Portfolio in the cloud</h3><p>Hosted a static site on object storage behind a CDN with HTTPS, and documented the setup and costs.</p><small>Cloud · Web</small></div>
+    </div>
+  </section>
+
+  <section class="sec about" id="about">
+    <h2>About</h2><hr>
+    <p>I'm Thura, a second-year Information Technology student who likes figuring out why things break and then making sure they don't break again. I run a small home lab, write scripts to automate boring tasks, and explain technical problems in plain language. I'm looking for an internship in IT support or systems administration.</p>
+
+    <h3>My Skills</h3>
+    <p>Networking</p><div class="bar"><div style="width:85%">85%</div></div>
+    <p>Linux</p><div class="bar"><div style="width:80%">80%</div></div>
+    <p>Python and scripting</p><div class="bar"><div style="width:75%">75%</div></div>
+    <p>Web development</p><div class="bar"><div style="width:70%">70%</div></div>
+
+    <div class="stats">
+      <div><b>15+</b>Lab builds</div><div><b>8</b>Projects</div><div><b>3</b>Certifications</div><div><b>200+</b>Lab hours</div>
+    </div>
+    <a class="btn" href="#"><svg class="i"><use href="#dl"/></svg> Download Resume</a>
+
+    <h3 style="padding-top:32px">What people say</h3>
+    <div class="quote"><div class="av">SK</div><div><p><span class="n">Sam K.</span> Classmate, project partner</p><p>Thura documents everything, so our team could pick up where he left off.</p></div></div>
+    <div class="quote"><div class="av">DR</div><div><p><span class="n">Dr. Rao.</span> Networking lecturer</p><p>One of the few students who tests the failure cases, not just the happy path.</p></div></div>
+    <div class="quote"><div class="av">MT</div><div><p><span class="n">Maria T.</span> IT lead, campus library</p><p>Fixed our lab printers and left clear notes for the next person.</p></div></div>
+
+    <h3 style="padding-top:16px;padding-bottom:16px">How I can help</h3>
+    <div class="grid">
+      <ul class="help"><li>IT Support</li><li>Troubleshooting</li><li>Account and device setup</li><li>Documentation</li><li>User training</li><li>Available: part-time</li></ul>
+      <ul class="help"><li>Systems and Networks</li><li>Linux and Windows servers</li><li>Small office networks</li><li>Backups and monitoring</li><li>Scripting and automation</li><li>Available: internship</li></ul>
+    </div>
+  </section>
+
+  <section class="sec contact" id="contact" style="margin-bottom:48px">
+    <h2 style="color:var(--grey)">Contact Me</h2><hr>
+    <p><svg class="i"><use href="#pin"/></svg> Your City, Country</p>
+    <p><svg class="i"><use href="#phone"/></svg> Phone: +00 000 0000</p>
+    <p><svg class="i"><use href="#mail"/></svg> Email: alex@example.com</p>
+    <p style="display:block;color:var(--grey);margin:28px 0 14px">Let's get in touch. Send me a message:</p>
+    <form action="mailto:alex@example.com" method="post" enctype="text/plain">
+      <input type="text" name="Name" placeholder="Name" aria-label="Name" required>
+      <input type="email" name="Email" placeholder="Email" aria-label="Email" required>
+      <input type="text" name="Subject" placeholder="Subject" aria-label="Subject" required>
+      <textarea name="Message" rows="5" placeholder="Message" aria-label="Message" required></textarea>
+      <button class="btn" type="submit"><svg class="i"><use href="#send"/></svg> Send message</button>
+    </form>
+  </section>
+
+  <footer>
+    <a href="#">GitHub</a><a href="#">LinkedIn</a><a href="#">Email</a>
+    <p class="note">Sample content: replace the name, projects, contact details and links with your own.</p>
+  </footer>
+</main>
+
+<script>
+function openNav(){var n=document.getElementById('nav');n.classList.add('open');n.querySelector('.close').focus()}
+function closeNav(){document.getElementById('nav').classList.remove('open')}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeNav()});
+</script>
+</body>
+</html>
